@@ -1,4 +1,9 @@
+import os
+import sys
+sys.path.append(os.path.abspath("."))
+
 import streamlit as st
+
 
 from app.models.claim import Claim
 from app.models.triage_result import TriageResult
