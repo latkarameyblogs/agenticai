@@ -1,3 +1,15 @@
+---
+title: Claims Triage Agent
+emoji: 🚗
+colorFrom: blue
+colorTo: green
+sdk: docker
+sdk_version: "1.0.0"
+app_file: ui/streamlit_app.py
+pinned: false
+---
+
+
 # Claims Triage Agent
 
 An industry-style Auto Insurance Claims Triage Agent built with CrewAI, Streamlit, and MCP.
