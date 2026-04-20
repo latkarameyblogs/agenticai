@@ -1,4 +1,4 @@
----
+-----
 title: Claims Triage Agent
 emoji: 🚗
 colorFrom: blue
@@ -7,7 +7,7 @@ sdk: docker
 sdk_version: "1.0.0"
 app_file: ui/streamlit_app.py
 pinned: false
----
+-----
 
 
 # Claims Triage Agent
