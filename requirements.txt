@@ -6,3 +6,4 @@ pydantic
 mcp
 fastapi
 uvicorn
+tiktoken==0.7.0
