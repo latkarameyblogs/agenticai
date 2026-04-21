@@ -47,4 +47,4 @@ def health():
     )
 
 
-app.mount("/mcp", mcp.sse_app())
+app.mount("/mcp", mcp.streamable_http_app())
