@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python -m app.mcp.server &
+uvicorn app.mcp.server:app --host 0.0.0.0 --port 8000 &
 
 streamlit run ui/streamlit_app.py \
   --server.port=7860 \

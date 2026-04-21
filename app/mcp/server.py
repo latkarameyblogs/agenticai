@@ -1,3 +1,5 @@
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from mcp.server.fastmcp import FastMCP
 
 from app.mcp.tool_contract import CLAIMS_TRIAGE_TOOL_CONTRACT
@@ -28,5 +30,18 @@ def claims_triage(
     )
 
 
-if __name__ == "__main__":
-    mcp.run(transport="sse")
+app = FastAPI(title="Claims Triage MCP Server")
+
+
+@app.get("/")
+def health():
+    return JSONResponse(
+        {
+            "status": "ok",
+            "service": "claims-triage-mcp",
+            "tool": "claims_triage",
+        }
+    )
+
+
+app.mount("/mcp", mcp.sse_app())

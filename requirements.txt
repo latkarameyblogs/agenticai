@@ -4,3 +4,5 @@ streamlit
 python-dotenv
 pydantic
 mcp
+fastapi
+uvicorn
