@@ -5,7 +5,10 @@ from mcp.server.fastmcp import FastMCP
 from app.mcp.tool_contract import CLAIMS_TRIAGE_TOOL_CONTRACT
 from app.mcp.tool_handler import execute_claims_triage
 
-mcp = FastMCP("claims-triage-server")
+mcp = FastMCP(
+    "claims-triage-server",
+    host="claims-triage-mcp.onrender.com"
+)
 
 
 @mcp.tool(
