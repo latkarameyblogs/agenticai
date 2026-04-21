@@ -1,22 +1,9 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
 from mcp.server.fastmcp import FastMCP
 
 from app.mcp.tool_contract import CLAIMS_TRIAGE_TOOL_CONTRACT
 from app.mcp.tool_handler import execute_claims_triage
 
 mcp = FastMCP("claims-triage-server")
-
-app = FastAPI(title="Claims Triage MCP Server")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 
 @mcp.tool(
@@ -41,20 +28,5 @@ def claims_triage(
     )
 
 
-@app.get("/")
-def health():
-    return JSONResponse(
-        {
-            "status": "ok",
-            "service": "claims-triage-mcp",
-            "tool": "claims_triage",
-        }
-    )
-
-
-# Mount BOTH forms so there is no redirect during browser preflight
-mcp_app = mcp.streamable_http_app()
-
-app.mount("/mcp", mcp_app)
-app.mount("/mcp/", mcp_app)
+app = mcp.streamable_http_app()
 
